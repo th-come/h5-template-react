@@ -1,14 +1,18 @@
-import { Button } from 'antd-mobile';
 import './App.scss';
 import './App.css';
+import { renderRoutes } from 'react-router-config';
+import route from "@/router/index";
+import { HashRouter } from 'react-router-dom';
+import { ContextProvider } from './store/contextProvider'
 
 function App() {
 	return (
-		<div className="App">
-			<Button type="primary">按钮1个</Button>
-			<div className="app-name">color</div>
-		</div>
-	);
+		<ContextProvider>
+			<HashRouter>
+				{renderRoutes(route)}
+			</HashRouter>
+		</ContextProvider>
+	)
 }
 
 export default App;

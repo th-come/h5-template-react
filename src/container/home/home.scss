@@ -1,0 +1,33 @@
+.home {
+	font-size: 24px;
+
+	.top-banner {
+		height: 150px;
+		width: 375px;
+		background: blanchedalmond;
+	}
+
+	.time {
+		text-align: center;
+	}
+
+	.content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	.content-item {
+		margin: 10px;
+		width: 150px;
+		height: 150px;
+		background: coral;
+	}
+
+	.home-image {
+		width: 375px;
+		height: 100px;
+		object-fit: cover;
+	}
+}
