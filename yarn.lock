@@ -12485,10 +12485,10 @@ win-release@^1.0.0:
   dependencies:
     semver "^5.0.1"
 
-wnl-qiniu-webpack-plugin@^1.0.2:
-  version "1.0.2"
-  resolved "http://192.168.1.130:4873/wnl-qiniu-webpack-plugin/-/wnl-qiniu-webpack-plugin-1.0.2.tgz#6527da6e31bc66b5bd6f8f7d82d9fd07ca62ec17"
-  integrity sha512-CCYzcIU+vvIp1WQI4HT8wt2NmzIdH3gJavtIrMMd0ZJVwmevQyM3F6ktiWOSEa8B8FbnuSxwj8H6RB40iYY6Cg==
+wnl-qiniu-webpack-plugin@^1.0.3:
+  version "1.0.3"
+  resolved "http://192.168.1.130:4873/wnl-qiniu-webpack-plugin/-/wnl-qiniu-webpack-plugin-1.0.3.tgz#a178192899a412c2dc661393e30c574b1f8f0ebf"
+  integrity sha512-iXYnkp+femsuUWhY5O1+tRJ3/blA1yAPvoB8RBrz8xhwHaAcSCAHnFM7FCkWyv4ioBbdkXTytaEOx9qryRby+Q==
   dependencies:
     chalk "^2.3.2"
     lodash.difference "^4.5.0"
