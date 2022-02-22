@@ -1,33 +1,17 @@
 .home {
-	font-size: 24px;
+	height: 100vh;
+	width: 100vw;
 
-	.top-banner {
-		height: 150px;
-		width: 375px;
-		background: blanchedalmond;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.home-name {
+		margin-top: 20px;
 	}
 
-	.time {
-		text-align: center;
-	}
-
-	.content {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-wrap: wrap;
-	}
-
-	.content-item {
-		margin: 10px;
-		width: 150px;
-		height: 150px;
-		background: coral;
-	}
-
-	.home-image {
-		width: 375px;
-		height: 100px;
-		object-fit: cover;
+	span{
+		font-size: 18px;
 	}
 }

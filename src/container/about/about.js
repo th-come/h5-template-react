@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
+import './about.scss';
 
 function About() {
-	
+	useEffect(() => {
+		console.log('About')
+	}, [])
 
 	return (
-		<div></div>
+		<div className='about'>hello About</div>
 	)
 }
 

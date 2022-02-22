@@ -1,54 +1,32 @@
 import React, { useEffect } from 'react';
 import './home.scss';
 import { useStore } from '@/store/contextProvider';
-import CutTime from '@/components/cutTime';
-import PayBanner from '@/assets/image/pay-banner.png';
+import HelloWorld from '@/components/helloWorld';
+import { useLocation } from 'react-router-dom';
+import { Button } from 'antd-mobile';
 
-function Home() {
+function Home(props) {
 	// 声明一个新的叫做 “count” 的 state 变量
 	const store = useStore()
+	const location = useLocation();
 	useEffect(() => {
-		console.log('请求初始数据')
+		console.log('请求初始数据', location)
 	}, [])
 
-	const TopBanner = () => {
-		return (
-			<div className="top-banner">
-
-			</div>
-		)
-	}
-
-	const GoodsContent = () => {
-		const array = [1, 2, 3, 4]
-		return (
-			<div className="content">
-				{
-					array.map((item) => {
-						return <div className="content-item"></div>
-					})
-				}
-			</div>
-		)
-	}
-
 	const changeName = () => {
+		const value = store.state.user.name === 'th'?'fafa':'th'
 		store.dispatch({
 			type: 'name',
-			value: 'fafa'
+			value: value
 		})
 	}
 
 	return (
 		<div className="home">
-			<TopBanner></TopBanner>
-			<CutTime></CutTime>
-			<GoodsContent></GoodsContent>
-			<div onClick={changeName}>
-				全局数据：{store.state.user.name}
-			</div>
-			<div>
-				<img className="home-image" src={PayBanner} />
+			<HelloWorld></HelloWorld>
+			<div className='home-name' onClick={changeName}>
+				<span>点我：</span>
+				<Button color='primary'>{store.state.user.name}</Button>
 			</div>
 		</div>
 	);

@@ -1,7 +1,6 @@
 const { override, fixBabelImports, addWebpackAlias, adjustStyleLoaders, addPostcssPlugins, addWebpackPlugin, overrideDevServer } = require('customize-cra');
 const path = require('path');
 const resolve = _path => path.resolve(__dirname, _path);
-const QiniuWebpackPlugin = require('wnl-qiniu-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // 跨域配置
@@ -12,11 +11,12 @@ const devServerConfig = () => config => {
 		compress: true,
 		proxy: {
 			'/api': {
-				target: 'http://192.168.2.18:3000/',
-				changeOrigin: true,
+				target: 'http://192.168.2.18:9090',
+				changeOrigin: true, // target是域名的话，需要这个参数，
+				secure: false, // 设置支持https协议的代理
 				pathRewrite: {
-					'^/api': '/api',
-				},
+					'^/api': '/'
+				}
 			}
 		}
 	}
@@ -32,10 +32,6 @@ const addCustomize = () => config => {
 
 module.exports = {
 	webpack: override(
-		fixBabelImports("import", {
-			libraryName: 'antd-mobile',
-			style: 'css',
-		}),
 		fixBabelImports("lodash", {
 			libraryDirectory: "",
 			camel2DashComponentName: false
@@ -54,7 +50,6 @@ module.exports = {
 			}
 		}),
 		addPostcssPlugins([require("postcss-px2rem")({ remUnit: 37.5 })]),
-		process.env.NODE_ENV === 'production' && addWebpackPlugin(new QiniuWebpackPlugin()),
 		process.env.NODE_ENV === 'production' && addWebpackPlugin(
 			new UglifyJsPlugin({
 				// 开启打包缓存
